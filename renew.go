@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"os"
 	"os/exec"
@@ -180,7 +180,7 @@ func PublishCert(certPath, api_host, token, domain string, force, debug bool) er
 		return err
 	}
 	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return err
 	}
@@ -255,7 +255,7 @@ func UpdateSSLData(id, api_host, token string, certContent *SSLPostContent) erro
 	}
 	defer resp.Body.Close()
 
-	respBody, err := ioutil.ReadAll(resp.Body)
+	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
 		fmt.Println("Error reading HTTP response body:", err)
 		return err

@@ -24,6 +24,6 @@ Flags:
   -h, --help                  help for renew
   -p, --path string           Path to store certificate files (default ".")
   -t, --token string          APISIX control console token
-      --debug boolean          acme.sh debug mode (default false) 
+      --debug boolean         acme.sh debug mode (default false) 
 
 ```
